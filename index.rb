@@ -3,7 +3,8 @@ require './talks.rb'
 class ConferenceSchedule 
 
   def initialize
-    @tracks = []
+    @tracks = Array.new
+    @session = nil
   end
 
   def publishTracks
@@ -11,7 +12,8 @@ class ConferenceSchedule
 
   def createSchedule
     talks_list = TALKSLIST::TALKS
-    puts talks_list
+    @session = Session.new talks_list
+    puts @session
     
   end
 end
